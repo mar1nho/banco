@@ -1,0 +1,92 @@
+*{
+    font-family: 'Macondo', cursive;
+}
+
+main{
+    background-color: #28B463 ;
+    border-radius: 20px 20px 0px 0px;
+    margin: auto;
+    width: 50rem;
+    text-align: center;
+    padding: 10px;
+}
+.card{
+    border: 0.62rem inset #2ECC71;
+    background-color: #D5F5E3;
+    width: 50rem;
+    margin: auto;
+}
+.card{
+    text-align: center;
+    display: grid;
+}
+.saldoAtual{
+    border: 5px solid #EAFAF1;
+    box-shadow: inset 1px 1px 10px 5px black;
+    padding: 1rem;
+}
+h2{
+    border: 1px solid black;
+    background-color: #EAFAF1;
+    width: 50%;
+    margin: 0% auto;
+    margin-bottom: 10px;
+    height: 3rem;
+    padding-top: 1rem;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 5px 2px black;
+}
+.operacoes{
+    border: 1px solid black;
+    width: 48rem;
+    margin: auto;
+    border: 0.62rem inset #2ECC71;
+    background-color: #D5F5E3;
+    text-align: center;
+    padding: 1rem;
+}
+button{
+    padding: 0.9rem;
+    margin: 0.1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.verificarSaldo:hover{
+    background-color: #A2D9CE ;
+    box-shadow: inset 1px 1px 1px 1px black;
+    font-weight: bold;
+}
+#valor{
+    padding: 10px;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: inset 1px 1px 1px 1px black;
+}
+#sucesso{
+    border: 1px solid black;
+    background-color: #117A65;
+    padding: 1rem;
+    color: #FDFEFE;
+    border-radius: 10px;
+    display: inline-block;
+    width: 18rem;
+    margin-bottom: 1rem;
+    box-shadow: 1px 1px 5px 3px #117A65;
+}
+.content{
+    display: grid;
+    border: 3px inset #239B56;
+    width: 50.8rem;
+    border-radius: 0px 0px 10px 10px;
+    margin-left: 21.9rem;
+    color: whitesmoke;
+    background-color: #2ECC71;
+    box-shadow: inset 1px 1px 10px 2px black;
+}
+td{
+    background-color: #ABEBC6;
+    color: black;
+    text-align: center;
+}

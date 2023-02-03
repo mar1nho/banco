@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Macondo&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco</title>
+</head>
+<body><div>
+    <main>
+        <h1>BANCO DO POVO</h1>
+        <h3>CUIDANDO DE VOCÊ E DO SEU DINHEIRO</h3>
+    
+    </div>
+    <div class="card">
+        <div class="saldoAtual">
+            <h2>CONTA CORRENTE:
+                <span class="correnteConta" id="contaCorrente"></span>
+            </h2>
+            <h2>CONTA POUPANÇA:
+                <span class="poupancaConta" id="contaPoupanca"></span>
+            </h2>
+    </div>
+</div>
+    <div class="operacoes">
+        <h3>Coloque o valor desejado e realize a operaçao abaixo:</h3>
+        <span id="sucesso">Realize uma operação</span><br>
+        <input type="number" id="valor"><br>
+        <button class="verificarSaldo" onclick="conta.verSaldo()">VER SALDO</button>
+        <span>
+            <button onclick="conta.sacar()">SACAR</button>
+        </span>
+        <span>
+            <button onclick="conta.deposito()">DEPOSITAR</button>
+        </span>
+        <span>
+            <button onclick="conta.transferirPoup()">TRANSFERIR POUPANÇA</button>
+        </span>
+    </div>
+    <div class="content">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Operação</th>
+                    <th>Valor</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>
