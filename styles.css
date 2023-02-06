@@ -89,3 +89,23 @@ td{
     color: black;
     text-align: center;
 }
+.link{
+    border: 1px solid black;
+    display: grid;
+    position: absolute;
+    left: 48.5rem;
+    top: 1.0rem;
+    width: 5rem;
+    height: 2rem;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #228B22;
+    color: whitesmoke;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px 2px black;
+}
+.link:hover{
+    box-shadow:inset 1px 1px 1px 1px black;
+    cursor: pointer;
+}
