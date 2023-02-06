@@ -25,7 +25,7 @@ class ContaBancaria{
             } else {
                 sucesso.innerText = "Valor depositado, verifique seu saldo!"
                 let randomLetters = []
-                const letters = "ABCDEGFHIJKLMNOPQRSTUVWXYZ"
+                const letters = "ABCD%EG#FH$IJK&LMNOPQRSTUVWXYZ"
                 for (let i = 0; i < 5; i++){
                     const randomIndex = Math.floor(Math.random() * letters.length);
                     randomLetters.push(letters[randomIndex])
@@ -34,7 +34,7 @@ class ContaBancaria{
                 this.saldo += valor;
                 document.getElementById("valor").value = ""
                 this.id++;
-                this.depositos.push({ id: this.string + this.id+"_ID", operacao: 'Deposito', valor });
+                this.depositos.push({ id: this.string +"_"+ this.id+"_ID", operacao: 'Deposito', valor });
                 contaCorrente.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.saldo); 
                 contaPoupanca.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.poupanca); 
             }

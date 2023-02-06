@@ -70,6 +70,7 @@ button{
     border-radius: 10px;
     border: 2px solid black;
     box-shadow: inset 1px 1px 1px 1px black;
+    text-align: center;
 }
 #sucesso{
     border: 1px solid black;
@@ -90,6 +91,7 @@ button{
     color: whitesmoke;
     background-color: #2ECC71;
     box-shadow: inset 1px 1px 10px 2px black;
+    border-radius: 0px 0px 10px 10px;
 }
 td{
     background-color: #ABEBC6;
