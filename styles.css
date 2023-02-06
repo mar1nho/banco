@@ -92,9 +92,8 @@ td{
 .link{
     border: 1px solid black;
     display: grid;
-    position: absolute;
-    left: 48.5rem;
-    top: 1.0rem;
+    position:absolute ;
+    transform: translate(44.5rem, -4.7rem);
     width: 5rem;
     height: 2rem;
     align-items: center;
