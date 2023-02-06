@@ -1,7 +1,13 @@
 *{
     font-family: 'Macondo', cursive;
 }
-
+body{
+    background-image: url(bcgd.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
 main{
     background-color: #28B463 ;
     border-radius: 20px 20px 0px 0px;
@@ -24,6 +30,7 @@ main{
     border: 5px solid #EAFAF1;
     box-shadow: inset 1px 1px 10px 5px black;
     padding: 1rem;
+    background-image: url(money.png);
 }
 h2{
     border: 1px solid black;
@@ -93,7 +100,7 @@ td{
     border: 1px solid black;
     display: grid;
     position:absolute ;
-    transform: translate(44.5rem, -4.7rem);
+    transform: translate(44.5rem, -11rem);
     width: 5rem;
     height: 2rem;
     align-items: center;
@@ -107,4 +114,16 @@ td{
 .link:hover{
     box-shadow:inset 1px 1px 1px 1px black;
     cursor: pointer;
+}
+img{
+    height: 6rem;
+    width: 6rem;  
+}
+h1::after{
+    content: "";
+    width: 10rem;
+    height: 4px;
+    background: black;
+    display: block;
+    margin: auto;
 }
