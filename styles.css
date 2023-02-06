@@ -79,8 +79,7 @@ button{
     display: grid;
     border: 3px inset #239B56;
     width: 50.8rem;
-    border-radius: 0px 0px 10px 10px;
-    margin-left: 21.9rem;
+    margin: auto;
     color: whitesmoke;
     background-color: #2ECC71;
     box-shadow: inset 1px 1px 10px 2px black;

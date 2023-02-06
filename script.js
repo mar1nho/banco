@@ -5,59 +5,44 @@ class ContaBancaria{
         this.depositos = [];
         this.saques = [];
         this.transferencias = [];
+        this.id = null;
         this.sucesso = document.getElementById("sucesso");
     }
+
     verSaldo(){
         let contaCorrente = document.getElementById('contaCorrente');
         contaCorrente.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.saldo); 
-            console.log(`----> Seu saldo atual é de R$${this.saldo} reais`)
         let contaPoupanca = document.getElementById('contaPoupanca');
         contaPoupanca.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.poupanca); 
-            console.log(`--> Seu saldo na poupança é de R$${this.poupanca} reais`)
             sucesso.innerText = "Realize uma operação"
         }
-          
 
-        criarTabela(){
-            let tbody = document.getElementById('tbody');
-            tbody.innerText = '';
-            for(let i = 0; i < this.depositos.length || i < this.saques.length || i < this.transferencias.length; i++){
-                let deposito = this.depositos[i];
-                let saque = this.saques[i];
-                let transferencia = this.transferencias[i];
-                let tr = tbody.insertRow();
-                let td_operacao = tr.insertCell();
-                let td_valor = tr.insertCell();
-                if(deposito){
-                    td_operacao.innerText = deposito.operacao;
-                    td_valor.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(deposito.valor);
-                } else if(saque){
-                    td_operacao.innerText = saque.operacao;
-                    td_valor.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(saque.valor);
-                } else if(transferencia){
-                    td_operacao.innerText = transferencia.operacao;
-                    td_valor.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(transferencia.valor);
-                }
-            }
-        }
-    
-    
-        deposito(){
-            let valor = Number(document.getElementById("valor").value);
-            if(valor == ''){
+    deposito(){
+        let valor = Number(document.getElementById("valor").value);
+            if(valor == '' || valor <= 0){
                 sucesso.innerText = 'Coloque um valor válido!'
                 alert("Valor inválido")
             } else {
                 sucesso.innerText = "Valor depositado, verifique seu saldo!"
+                let randomLetters = []
+                const letters = "ABCDEGFHIJKLMNOPQRSTUVWXYZ"
+                for (let i = 0; i < 5; i++){
+                    const randomIndex = Math.floor(Math.random() * letters.length);
+                    randomLetters.push(letters[randomIndex])
+                    this.string = randomLetters.join("")
+                }
                 this.saldo += valor;
-                this.depositos.push({ operacao: 'Deposito', valor });
                 document.getElementById("valor").value = ""
+                this.id++;
+                this.depositos.push({ id: this.string + this.id+"_ID", operacao: 'Deposito', valor });
+                contaCorrente.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.saldo); 
+                contaPoupanca.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.poupanca); 
             }
-            this.criarTabela();
+            this.criarTabela()
         }
 
-        sacar(){
-            let valor = Number(document.getElementById("valor").value);
+    sacar(){
+        let valor = Number(document.getElementById("valor").value);
             if(valor == ''){
                 sucesso.innerText = 'Coloque um valor válido'
                 alert("Valor inválido");
@@ -67,25 +52,43 @@ class ContaBancaria{
             } else {
                 sucesso.innerText = "Valor sacado, verifique seu saldo!";
                 this.saldo -= valor;
-                this.saques.push({ operacao: 'Saque', valor });
                 document.getElementById("valor").value = "";
+                contaCorrente.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.saldo); 
+                contaPoupanca.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.poupanca); 
             }
-            this.criarTabela();
         }
 
-    transferir(){
+    transferirPoup(){
         let valor = Number(document.getElementById("valor").value);
         if(valor == '' || valor > this.saldo){
             sucesso.innerText = 'Coloque um valor válido ou verifique seu saldo'
         } else {
             sucesso.innerText = "Valor transferido, verifique seu saldo!"
             this.saldo -= valor;
-            this.transferencias.push({ operacao: 'Transferência', valor });
+            this.poupanca += valor
+            contaCorrente.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.saldo); 
+            contaPoupanca.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.poupanca); 
             document.getElementById("valor").value = ""
-            this.criarTabela();
         }
-}
-
+    }
+    criarTabela(){
+        let tbody = document.getElementById('tbody');
+        tbody.innerText = '';
+        for(let i = 0; i < this.depositos.length || i < this.saques.length || i < this.transferencias.length; i++){
+            let deposito = this.depositos[i];
+            let saque = this.saques[i];
+            let transferencia = this.transferencias[i];
+            let tr = tbody.insertRow();
+            let td_id = tr.insertCell();
+            let td_operacao = tr.insertCell();
+            let td_valor = tr.insertCell();
+            if(deposito){
+                td_id.innerText = deposito.id;
+                td_operacao.innerText = deposito.operacao;
+                td_valor.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(deposito.valor);
+            } 
+        }
+    }
 }
 
 let conta = new ContaBancaria();
