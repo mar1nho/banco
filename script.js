@@ -51,11 +51,21 @@ class ContaBancaria{
                 alert("Saldo insuficiente");
             } else {
                 sucesso.innerText = "Valor sacado, verifique seu saldo!";
+                let randomLetters = []
+                const letters = "ABCD%EG#FH$IJK&LMNOPQRSTUVWXYZ"
+                for (let i = 0; i < 5; i++){
+                    const randomIndex = Math.floor(Math.random() * letters.length);
+                    randomLetters.push(letters[randomIndex])
+                    this.string = randomLetters.join("")
+                }
                 this.saldo -= valor;
                 document.getElementById("valor").value = "";
+                this.id++;
+                this.saques.push({id: this.string+"_"+ this.id+"_ID", operacao: "Saque", valor})
                 contaCorrente.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.saldo); 
                 contaPoupanca.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.poupanca); 
             }
+            this.criarTabela()
         }
 
     transferirPoup(){
@@ -78,17 +88,27 @@ class ContaBancaria{
             let deposito = this.depositos[i];
             let saque = this.saques[i];
             let transferencia = this.transferencias[i];
-            let tr = tbody.insertRow();
-            let td_id = tr.insertCell();
-            let td_operacao = tr.insertCell();
-            let td_valor = tr.insertCell();
             if(deposito){
+                let tr = tbody.insertRow(0);
+                let td_id = tr.insertCell();
+                let td_operacao = tr.insertCell();
+                let td_valor = tr.insertCell();
                 td_id.innerText = deposito.id;
                 td_operacao.innerText = deposito.operacao;
                 td_valor.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(deposito.valor);
             } 
-        }
+            if (saque){
+                let tr = tbody.insertRow(0);
+                let td_id = tr.insertCell();
+                let td_operacao = tr.insertCell();
+                let td_valor = tr.insertCell();
+                td_id.innerText = saque.id;
+                td_operacao.innerText = saque.operacao;
+                td_valor.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(saque.valor);
+            } 
+         }
     }
 }
+
 
 let conta = new ContaBancaria();
