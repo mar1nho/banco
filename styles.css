@@ -59,7 +59,7 @@ button{
     border-radius: 10px;
     cursor: pointer;
 }
-.verificarSaldo:hover{
+button:hover{
     background-color: #A2D9CE ;
     box-shadow: inset 1px 1px 1px 1px black;
     font-weight: bold;
